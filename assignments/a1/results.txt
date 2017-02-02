@@ -1,0 +1,39 @@
+Score: 62 / 68
+
+Question 1: 14 marks
+
+a) 2 (does not work for c = 2, n = 9)
+
+b) 2
+
+c) 2
+
+d) 8
+
+Question 2: 9 marks
+
+*2-b: wrong number of iterations
+
+Question 3: 7 marks
+
+Analysis of divide and conquer missing
+
+Question 4: 10/10
+
+Good job!
+
+Initialization: 2/2
+
+Algorithm: 3/3
+
+Correctness: 3/3
+
+Analysis: 2/2
+
+Question 6: 6/6
+
+Question 5: 16/16
+
+5a: 8/8
+
+5b: 8/8
