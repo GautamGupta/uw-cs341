@@ -1,0 +1,16 @@
+D: Sorted array of distances of n hotels
+L: Max possible travel distance / day
+HotelsToStay(D, L, n):
+  start = D[0]
+  i = 1
+  while (i != n) {
+    traveled = 0
+    nextDistance = D[i+1] - D[i]
+    if ((nextDistance + traveled) > L) {
+      report i
+      traveled = 0
+    } else {
+      traveled += nextDistance
+    }
+    i++
+  }

@@ -1,0 +1,35 @@
+Quads: enum {TR, BR, BL, TL}
+(top-right, bottom-right, bottom-left, top-left)
+
+       (i, j)
+L.TR: {(0, 0), (1, 0), (1, 1)}
+  or  X
+      XX
+L.BR: {(0, 0), (0, 1), (1, 0)}
+  or  XX
+      X
+L.BL: {(0, 0), (0, 1), (1, 1)}
+  or  XX
+       X
+L.TL: {(1, 0), (0, 1), (1, 1)}
+  or   X
+      XX
+
+Inserts tile L in grid with position as top-left origin
+The 'X' positions become new cavities
+insertLInGrid(grid, L, position)
+  for square in L:
+    grid[position + square.i][position + square.j] = 'X'
+
+grid: Grid of size n*n to tile with Ls
+[0][0] being the initial cavity (in TL quad)
+TileSquare(grid, n)
+  if n = 1 return grid
+  else
+    insertLInGrid(grid, L.(grid.cavity_quad), (n/2)-1)
+    TileSquare(grid.TR, n/2)
+    TileSquare(grid.BR, n/2)
+    TileSquare(grid.BL, n/2)
+    TileSquare(grid.TL, n/2)
+
+  return grid

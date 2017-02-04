@@ -1,0 +1,20 @@
+NOT_EQ: Not equal identifier, does not exist in array C
+count(A, elem) returns the number of times elem occurs in array A
+
+C: Array of results of n Computers
+Returns the popular result if it is popular, NOT_EQ otherwise
+PopularResult(C, n):
+  if (n = 1) {
+    return C[1]
+  } else {
+    left  = PopularResult(C[1..(n/2)], n/2)
+    right = PopularResult(C[(n/2 + 1)..n], n/2)
+    return left if left = right
+
+    leftFreq = count(C, left)
+    rightFreq = count(C, right)
+
+    if leftFreq > n/2 return left
+    else if rightFreq > n/2 right right
+    else return NOT_EQ
+  }
