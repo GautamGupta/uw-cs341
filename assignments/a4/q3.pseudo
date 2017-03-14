@@ -1,0 +1,32 @@
+G: Directed graph
+returns array of edges in cycles
+findEdgesInCycles(G):
+  edgesInCycle = []
+  for v in V(G):
+    color[v] = white
+
+  for v in V:
+    if color[v] = white:
+      edgesInCycle += findEdgesInCyclesVisit(v)
+
+  return edgesInCycle
+
+
+findEdgesInCyclesVisit(v):
+  edgesInCycle = []
+
+  color[v] = gray
+  # Maintain stack of vertices currently in this traversal
+  S.push(v)
+
+  for w in Adj(v):
+    if color[w] = white:
+      edgesInCycle += findEdgesInCyclesVisit(w)
+    if color[w] = gray:                          # Found Cycle
+      verticesInCycle = []
+      edgesInCycle += all edges between w and v using stack S
+
+  color[v] = black
+  S.pop(v)
+
+  return edgesInCycle

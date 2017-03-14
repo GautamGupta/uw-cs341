@@ -1,0 +1,26 @@
+Score: 55 / 72
+
+q1: 15
+
+Question 2: 6 marks
+
+2-a: No recursion formulas
+
+Wrong definition of subproblems
+
+Wrong algorithm
+
+4) 14
+
+a) 8 marks (needs more detail)
+
+b) 6 marks
+
+-2 you only output half the LPS
+
+-2 times out on longer inputs
+
+
+Q3: 20 marks
+a) 12 marks
+b) 8 marks - missing recursive formula

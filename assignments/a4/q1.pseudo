@@ -1,0 +1,48 @@
+A: Array of size n
+PositiveSumPartition(A, n):
+  s = sum of all elements of A, assert > 0
+  p = sum of mod of all elements of A
+  q = mod of sum of all negative elements of A
+  # mem[i][j][k] == True means it is possible to find
+  # j elements from A[1..i] with sum k - q
+  mem = bool[n][n/2][p]
+
+  # Base case
+  for i = 1 to n:
+    mem[i][1][q + A[i]] = True
+
+  # Build table, O(n^3)
+  for i = 1 to n:
+    for j = 2 to min(i, n/2):
+      for k = q to p:
+        # sum is exactly between 1 and s-1 or not
+        if (k - A[i] <= q or k - A[i] > q + s):
+          mem[i][j][k] = mem[i-1][j][k]
+        else:
+          mem[i][j][k] = mem[i-1][j-1][k - A[i]]
+
+  # Backtrack, O(n)
+  i, j = n, n/2
+  partitionOne = []
+  for k = q to p:
+    if mem[i][j][k] = True:       # Found a soln
+      while (i > 0 and j > 0):
+        if mem[i][j][k] = mem[i-1][j-1][k - A[i]]:
+          partitionOne.push(A[i])
+          k -= A[i]
+          j--
+        i--
+
+      return (partitionOne, A - partitionOne)
+
+  return False
+
+Base case:
+  mem[i][1][q + A[i]] = True for i = 1 to n
+  At least 1 (j) element in A[1..i] will produce some q + A[i]
+
+Recursive relation:
+  mem[i][j][k] = mem[i-1][j-1][k-A[i]] or mem[i-1][j][k]
+
+Run-time analysis:
+  Generating the table is O(n^3), backtracking is O(n) as shown. Therefore total run-time is O(n^3).
